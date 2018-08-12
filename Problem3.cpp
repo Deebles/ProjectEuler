@@ -1,44 +1,59 @@
 #include <iostream>
+#include <iterator>
+#include <vector>
+
+bool checkPrime(unsigned long long int);
+bool checkFactor(unsigned long long int, unsigned long long int);
 
 int main()
 {
+unsigned long long int target = 600851475143;
+//600851475143 13195;
+unsigned long long int runningTarget = 2;
+std::vector<unsigned long long int> resVect;
 
-unsigned int n = 600851475143;
-while(p < n){
-p = smallestPrime(n);
-	if (p <n){
-		n/= p;
-	else
-	
-	
+for(runningTarget = 2; runningTarget <= target; runningTarget++)
+	{
 
-
-}
-
-
-
-
-
-
-
-int smallestPrime(int n){
-		if (n<=1)
-		throw;
-	int i = 2;
-
-	while(i < sqrt(n){
-		if (n % i ==0)
-		return i;
-
+	if(checkFactor( target , runningTarget) && checkPrime(runningTarget)){
+		resVect.push_back(runningTarget);
+        target = target/runningTarget;
+		}
 	}
- 
-std::cout << "The largest prime factor is : ";
-std::cout << n;
-std::endl (std::cout);
 
-return 0;
-
+for (std::vector<unsigned long long int>::const_iterator i = resVect.begin(); i != resVect.end(); ++i)
+    {
+        std::cout << *i << std::endl;
+    }
+    std::cout << "The largest Prime Factor is : ";
+    std::cout << resVect.back() << std::endl;
+	return 0;
 }
 
 
+bool checkFactor (unsigned long long int a , unsigned long long int b)
+{
+    bool isFactor = false;
+    if (a % b == 0)
+    {
+        isFactor = true;
+    }
+    return isFactor;
+}
 
+
+bool checkPrime (unsigned long long int x)
+{
+    
+    bool isPrime = true;
+    
+    for(unsigned long long int i = 2; i <= x/2; i++)
+    {
+        if (x % i == 0)
+        {
+            isPrime =  false;
+            break;
+        }
+    }
+    return isPrime;
+}
