@@ -21,7 +21,6 @@ int main(int argc, const char * argv[]) {
         for(factor2 = factor1; factor2 < 1000; factor2++)
         {
             num = factor1*factor2;
-            // std::cout << checkPalindrome(num);
             
             if ( (checkPalindrome(num) ) && (num > finalNum) )
             {
@@ -33,7 +32,6 @@ int main(int argc, const char * argv[]) {
             }
             }
         }
-    //std::cout << "The largest palindromic number that's a product of two three figure numbers is: " << std::endl;
     std::cout << finalNum << std::endl;
     return 0;
 }
@@ -54,7 +52,6 @@ bool checkPalindrome(int num)
     {
         isPal = true;
     }
-    //std::cout << originalNum << " , " << rev << std::endl;
     
     return isPal;
 }
